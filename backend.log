@@ -1,0 +1,250 @@
+CaseBuddy backend running on http://localhost:3001
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Workflow] RAG索引完成: 11 块
+[Workflow] LLM分析中: 案例速读 (15085 字符)
+[Workflow] LLM分析完成: 案例速读 (1330 字符)
+[Workflow] LLM分析中: SWOT分析 (15056 字符)
+[Workflow] LLM分析完成: SWOT分析 (4010 字符)
+[Workflow] LLM分析中: 深度洞察 (15066 字符)
+[Workflow] LLM分析完成: 深度洞察 (3466 字符)
+[Workflow] PPT大纲生成中...
+[Workflow] PPT大纲完成 (4320 字符)
+[Workflow] 工作流完成: å®è¸æ¡ä¾
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+Error: Unsupported file type: text/plain. Only PDF and DOCX are supported.
+    at fileFilter (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\dist\index.js:176:16)
+    at wrappedFileFilter (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\node_modules\multer\index.js:44:7)
+    at Multipart.<anonymous> (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\node_modules\multer\lib\make-middleware.js:109:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\backend\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Writable.write (node:internal/streams/writable:508:10)
+    at IncomingMessage.ondata (node:internal/streams/readable:1012:24)
+    at IncomingMessage.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:563:12)
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772
+[Gateway] 检查二维码路径: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\wx_qr.png
+[Gateway] 文件是否存在: true
+[Gateway] 读取二维码图片成功，大小: 772

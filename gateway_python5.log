@@ -1,0 +1,82 @@
+[Gateway] 已加载 5 条推送历史
+[Gateway] Python 网关服务启动在 http://127.0.0.1:3002
+[Gateway] 按 Ctrl+C 停止
+[Gateway] 微信 token 验证失败: HTTPSConnectionPool(host='ilinkai.weixin.qq.com', port=443): Read timed out. (read timeout=10)，重新扫码
+[Gateway] 微信未登录，开始扫码登录...
+[Gateway] POST /start/wechat HTTP/1.1
+[WX-QR] qr_id=fcc5b952e63d70c5e03ce7ea90afa7fb
+[WX-QR] 二维码已保存: C:\Users\Lenovo\.casebuddy\wx_qr.png
+█▀▀▀▀▀▀▀████▀▀█▀█▀▀▀▀▀▀█▀█▀▀███▀▀▀█▀▀▀▀▀▀▀█
+█ █▀▀▀█ █▀▀  █▀ ▄  ▀▀▀ ▀█  ▄  ▄▄█ █ █▀▀▀█ █
+█ █   █ █    ▀ ▄█▀█▀▀▀▄▀▀▀█▄▄ ▀ █ █ █   █ █
+█ ▀▀▀▀▀ █ █ ▄ █▀▄ █ █ ▄▀█▀█▀▄ █▀█ █ ▀▀▀▀▀ █
+█▀█▀▀▀▀▀█▄▀█▀▄█ ▀▄▀██ ▄ █▀▀▀ ▀▀▄▀██▀▀▀▀▀███
+█  ▄▄█ ▀█▄█▀  █▄▀▀▀▀▄▄▀ ▄█▀▄▀ █ ▄ ▀ █ █▄█▄█
+██▄   ▀▀▄  ▀█ ▀▄█▄▀   ▄ █▀▀▀ ▀▀█  ██▄▄ ▀█ █
+█ ▄▀  ▄▀  █▄ ▄▄█▀▀▀▀█▀ █▀▀▀▀ ▀██▄▀▀▄▀   ▄▄█
+█▀▀▄  █▀ █▄▄  ▄▄██▀ ██▄  █▀  █▀▀▀ ▀▄▀▄▄▀ ▄█
+██▀▄█ ▀▀▄█ ▄ ▄▀▀ ██ ▄ █▀▄▄██▀  █▄▀█ ▄  █▄▄█
+█  ▀▄ ▀▀█ █▄▀  █▄▀█▀▄ ▀▀▀ █▄▀▀▄▄▄█▀▄▀▄▀▀▀▄█
+█▀▀▀███▀▄ █▄▀▀▀ █▀█▀▄▀▀█▄▀█▄▀ ▄ ▄ █▄▄ ▄█▄▄█
+██▀▀ ▀▄▀  ▀▀▄▄▄▄  ▀▀▄█▄▀█▀▀██▄▀█▄▄▀▄▄▄ █▀▀█
+█▄ █▄██▀▀▀▀█▄█ ▀▄▄▄ ▄█▄▀▄█▀█▀ ██▄▀▀▄ ▄▄█▄▄█
+█▄▀█▀▀▄▀▄▀▀▀▀█▄█▄ ▀▀ ▄▄▀▄█▀  ▄▀▀  ▄█▀▄ ▀ ▄█
+█ ▄█▄  ▀█▄▄▀▀█▄▀▄█▀█▀▄▄▀█▄█▀▄▄█▀▄▀   ▄ ▄▀▄█
+█ █▄█▄▀▀▄▄██ ▀█▀▄▀▀▄  ▄▀█▄▀ █▄▀ █    ▀█▀███
+█▀▀▀▀▀▀▀█▄▀▀ ▄▄▄▄▀ ▄▄▀ █▄▄ ▀▀ █▀▀ █▀█ ▄▀▄▄█
+█ █▀▀▀█ █  ▀▄▄██▀▄▄▄██ ▄█ ▄▀▀▀█▀▄ ▀▀▀ ▀▀▄ █
+█ █   █ █ ▄█▄▄▀▀ ▀▄▄▄ ▀▄▄█ ▀▀▀████ ▀ ▀  ███
+█ ▀▀▀▀▀ █▀▄▄▀█▀ ▀▀█▄▄█▄  █▀▀ █▀▄▀██▀▀  ▀▄██
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+[WX-QR] 状态: wait
+[WX-QR] 状态: expired
+[Gateway] 微信登录失败: 二维码已过期，请重新获取
+[Gateway] GET /status HTTP/1.1[Gateway] GET /config HTTP/1.1
+
+[Gateway] GET /config HTTP/1.1
+[Gateway] GET /status HTTP/1.1
+[Gateway] 已同步 session 摘要 (13 条)
+[Gateway] POST /sync-session HTTP/1.1
+[Gateway] POST /config/wechat HTTP/1.1
+[Gateway] GET /status HTTP/1.1
+[Gateway] GET /config HTTP/1.1
+[Gateway] 微信未登录，开始扫码登录...
+[Gateway] POST /start/wechat HTTP/1.1
+[WX-QR] qr_id=7aab2626bcfe49c2596781b926032a34
+[WX-QR] 二维码已保存: C:\Users\Lenovo\.casebuddy\wx_qr.png
+█▀▀▀▀▀▀▀███████▀▀█▀█▀█▀▀▀▀▀▀████▀██▀▀▀▀▀▀▀█
+█ █▀▀▀█ █▀▀ ▄█▀ ▄  ▀▀▄ ▀▀▄ ▄ █▄▄▀██ █▀▀▀█ █
+█ █   █ █   ▀▄ ▄▄ █▀▀▄▄▀▀▀█▄█ ▀ █ █ █   █ █
+█ ▀▀▀▀▀ █ █ █▀█▀▄ █ █▀▄▀█▀█▀▄ █▀█ █ ▀▀▀▀▀ █
+█▀█▀▀▀▀▀█▄▀█ ██ ▄▄▀█▄▀▄ █▀▀▀ ▀▀▄▀██▀▀▀▀▀███
+█  ▄██ ▀▄█▀▀  ▄▄▀▀▀▀▄▄▀ ▄█▀▄▀ █ ▄ ▀ ▀ █▄█▄█
+██▄ ▄ ▀▀▀▀█ █ █▄█▄▀   ▄▄█▀▀▀ ▀▀█  ██▄▄ ▀█ █
+█ ▄ █ ▄▀▀▄▄▄ ▄▄█▀▀███▀ ▄▀▀██ ▀██▄▀▀▄▀   ▄▄█
+█▀▀   █▀ █ ▄ ▄█▄██▀ █▀▄█ █▀  ▀▀▀▀ ▀▄▀▄▄▀▄▄█
+█▄█▄█▀█▀▄█ █▀ ▀  ██ ▄▀█ ▄ ██▀▀ █▄▀█ ▄ █▀▄▄█
+█ ▀▀▄ ▄▀█ █▄ ▄ ████▀██▀▀▄ █▄▀ ▄▄▄█▀▄▀▄▄▀▀▄█
+█▀▄▀█ █▀▄ █▄▄█▀ █▄█▀▄ ▀█▄▀█▄▀ ▄ ▄ █▄▄ ▄█▄▄█
+█ ▀▀ ▄▄▀  ▀▀██▄▄▄▀▀▀██▄▀█▀▀██▄▀█▄▄ █▄▄ █▀▀█
+█▄ ▄▄██▀█▄█▀▄█▀█▄▄▀▄▄█▄▀▄█▀█▀ ██▄▀▀▄▄▄▄█▄▄█
+█▄▀▄▄▀▄▀█ ▀█▀█▄▄▄ ▀  ▄▄ ▄█▀  ▄▀▀  ▄█ ▄ ▀ ▄█
+█ ▄██  ▀█▀█ ▀█▄▄▄█▀█▀▄▄██▄▀█▄▄▄▀▄▀   ▄ ▄▀▄█
+█ █▄▄▄▀▀▄▄▀▀ █▀▀▄▀▀▄ ▄▄▄█▄▀██ ▀▀█    ▀█▀ ▄█
+█▀▀▀▀▀▀▀█▄▀▀ ▄▄▄▄█ ▄▄▄ ▄▄▄  ▀██▀▀ █▀█ ▀▀▄▄█
+█ █▀▀▀█ █  ▀████▄▄▄▄▄█ ▄▀ ▄▀▀ █▀▄ ▀▀▀ ▄▀▄ █
+█ █   █ █ ▄█▀█▀▀ ▄▄▄▄ ▀▄▄█ ▀▀▀██▄▀ ▀ ▀  ███
+█ ▀▀▀▀▀ █▀▄▄ █▀ ▀▀█▄██▄  █▀▀ █▀▄▀██▀▀  ▀▄██
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+[WX-QR] 状态: confirmed
+[WX-QR] 登录成功! bot_id=b6a1fd7baa3f@im.bot
+[Gateway] 扫码完成，二维码: C:\Users\Lenovo\.casebuddy\wx_qr.png
+[WX] 监听中... (bot_id=b6a1fd7baa3f@im.bot)
+[Gateway] 微信监听线程已启动
+[WX] 收到非文本消息 from o9cq806S69Q1JgU8_Xlai0fTZ6QM@im.wechat: type=1
+[WX] 检测到file(下载方式:cdn): name=安踏案例.pdf
+[WX] download_media: item_list types = [4]
+[WX]   item type=4, keys=['type', 'create_time_ms', 'update_time_ms', 'is_completed', 'button_item_list', 'file_item']
+[WX]   file_item content: {"media": {"encrypt_query_param": "VWlVLVUwcWtMUi05MGQ5NF9XX2hxOXgyRHNGR3Jjekc1MTV0Q1A3elZKTmJZUi1WVmlEZ3ItclBlWnFZT1FCZXFaalBrMVVSdTVRVUQ1bEszSk9BNXpLT0FBVnhlWjA4czZOOUFGQU92NHJSQnd5bzhGbVRwREctTEVWN1YyWTBCdWtrMW9XcjFaaTFlZk9ZVzJxRWtibU1jQXdVY01xb0ZlSnUwZVdOSDhMcndmRzVjSWJYNUZfa1AtVU40TUxFV1ZveFVZVWh2Qlo5MmNyRVMtZmRsdWwzdVctWTZRYjRtdjJ2TlNxMXpnMC1VUnhZbVBDT0JlNGljRTFFaFJoZ2V4dFZLUG9IWUY5NE9qc2xuY0QtYTV2TlNrUEJEaHoyNGVzbmg1Z0owaG1MSmo5Q1VpY3RZcGxZbFBaMVA4MkRmdnZ3b0U2bWthQmV6VVZDaUthUUpCWVpqdVNrW
+[WX] CDN下载成功: 安踏案例.pdf (756596 bytes)
+[WX] 文件已下载: D:\wrw组会\MBA案例分析\MBA案例分析\casebuddy\gateway-python\temp\1779371828_安踏案例.pdf
+[Gateway] GET /status HTTP/1.1
+[Gateway] GET /status HTTP/1.1
