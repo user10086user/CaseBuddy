@@ -12,6 +12,7 @@ import {
   FileText, MessageSquare, Type, Layout, Table2, BarChart3,
   Quote, Lightbulb, BookOpen, Layers, Share2, FileUp,
   Monitor, Smartphone, PanelLeft, Hash, AlignLeft, Trash2,
+  MessageCircle,
 } from 'lucide-react';
 
 // ─── Types ───────────────────────────────────────────────────────────
@@ -462,6 +463,19 @@ function SlidePreview({ slide, styleId }: { slide: SlideData; styleId: string })
 
 // ─── Main Component ──────────────────────────────────────────────────
 
+// localStorage 持久化
+const PPT_CHAT_KEY = 'casebuddy-ppt-chat';
+const PPT_RESULT_KEY = 'casebuddy-ppt-result';
+
+function loadPPTChat(): ChatMsg[] {
+  try { return JSON.parse(localStorage.getItem(PPT_CHAT_KEY) || '[]'); }
+  catch { return []; }
+}
+function loadPPTResult(): PPTResult | null {
+  try { return JSON.parse(localStorage.getItem(PPT_RESULT_KEY) || 'null'); }
+  catch { return null; }
+}
+
 export default function PPTAssistant() {
   const { session } = useSession();
   const [models] = useLocalStorage<ModelConfig[]>('casebuddy-models', defaultModels);
@@ -473,14 +487,14 @@ export default function PPTAssistant() {
   const [topicText, setTopicText] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Output
-  const [result, setResult] = useState<PPTResult | null>(null);
+  // Output — 从 localStorage 恢复
+  const [result, setResult] = useState<PPTResult | null>(loadPPTResult);
   const [activeTab, setActiveTab] = useState<OutputTab>('outline');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFullscreenPreview, setShowFullscreenPreview] = useState(false);
 
-  // Chat
-  const [chatMessages, setChatMessages] = useState<ChatMsg[]>([]);
+  // Chat — 从 localStorage 恢复
+  const [chatMessages, setChatMessages] = useState<ChatMsg[]>(loadPPTChat);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -499,6 +513,23 @@ export default function PPTAssistant() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatMessages]);
+
+  // 持久化聊天记录到 localStorage
+  useEffect(() => {
+    try {
+      const trimmed = chatMessages.slice(-100);
+      localStorage.setItem(PPT_CHAT_KEY, JSON.stringify(trimmed));
+    } catch { /* ignore quota errors */ }
+  }, [chatMessages]);
+
+  // 持久化 PPT 结果到 localStorage
+  useEffect(() => {
+    try {
+      if (result) {
+        localStorage.setItem(PPT_RESULT_KEY, JSON.stringify(result));
+      }
+    } catch { /* ignore quota errors */ }
+  }, [result]);
 
   // Build context from selected data source
   const buildContext = useCallback((): { text: string; sourceName: string } => {
@@ -1345,6 +1376,36 @@ export default function PPTAssistant() {
                           <div>
                             <p className="text-sm font-medium text-surface-800">PPTX 文件</p>
                             <p className="text-[11px] text-surface-400">{exporting ? '生成中...' : '基础样式PPTX'}</p>
+                          </div>
+                        </button>
+
+                        <button
+                          onClick={async () => {
+                            const mdContent = buildMarkdownExport(result);
+                            try {
+                              const res = await fetch('http://localhost:3001/api/gateway/push-wechat', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ content: mdContent, title: `【${result.title}】PPT大纲` }),
+                              });
+                              if (res.ok) {
+                                alert('✅ PPT大纲已推送到微信！');
+                              } else {
+                                const d = await res.json();
+                                alert(`❌ 推送失败: ${d.error || '请确认微信已登录'}`);
+                              }
+                            } catch {
+                              alert('❌ 网络错误，请确认后端和微信网关已启动');
+                            }
+                          }}
+                          className="flex items-center gap-3 p-4 rounded-xl border border-green-200 hover:border-green-400 hover:bg-green-50 transition-all text-left"
+                        >
+                          <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center">
+                            <MessageCircle className="w-5 h-5 text-green-600" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium text-surface-800">发送到微信</p>
+                            <p className="text-[11px] text-surface-400">推送大纲到微信</p>
                           </div>
                         </button>
                       </div>

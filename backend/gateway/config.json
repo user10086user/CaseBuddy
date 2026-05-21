@@ -1,0 +1,11 @@
+{
+  "gateways": {
+    "wecom": {
+      "enabled": true,
+      "botId": "test-bot-id",
+      "secret": "test-secret",
+      "welcomeMessage": "���Ի�ӭ��Ϣ",
+      "allowedUsers": []
+    }
+  }
+}

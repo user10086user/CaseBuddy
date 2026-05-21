@@ -12,7 +12,9 @@ import {
   History,
   Trash2,
   PlusCircle,
-  Wand2
+  Wand2,
+  MessageCircle,
+  Zap
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useSession } from '../contexts/SessionContext';
@@ -21,8 +23,11 @@ const navItems = [
   { path: '/', label: '首页', icon: Brain },
   { path: '/workbench', label: '分析工作台', icon: MessageSquare },
   { path: '/ppt-assistant', label: 'AI PPT助手', icon: Sparkles },
+  { path: '/wechat', label: '微信助手', icon: MessageCircle },
+  { path: '/workflow', label: '智能工作流', icon: Zap },
   { path: '/skills', label: '技能市场', icon: Puzzle },
   { path: '/models', label: '模型配置', icon: Settings },
+  { path: '/gateway', label: '消息网关', icon: MessageCircle },
 ];
 
 export default function Layout() {

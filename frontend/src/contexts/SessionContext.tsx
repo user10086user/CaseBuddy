@@ -1,6 +1,8 @@
-import { createContext, useContext, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import type { AnalysisSession } from '../types';
+
+const GATEWAY_API = 'http://localhost:3001/api/gateway';
 
 const defaultCase = `案例：御风拏云——亿航智能从技术破壁到场景裂变的技术商业化密码
 
@@ -103,6 +105,30 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       };
     });
   }, [setSession, setSessionHistory]);
+
+  // 自动同步 session 摘要到后端（供微信 Bot 查询）
+  const syncTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (!session.messages || session.messages.length === 0) return;
+    // 防抖：session 变化后 2 秒同步
+    if (syncTimerRef.current) clearTimeout(syncTimerRef.current);
+    syncTimerRef.current = setTimeout(() => {
+      try {
+        const summary = session.messages.slice(-20).map(m => ({
+          role: m.role,
+          content: m.content.slice(0, 1000),
+        }));
+        fetch(`${GATEWAY_API}/sync-session`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: summary }),
+        }).catch(() => { /* 静默失败 */ });
+      } catch { /* ignore */ }
+    }, 2000);
+    return () => {
+      if (syncTimerRef.current) clearTimeout(syncTimerRef.current);
+    };
+  }, [session.messages, session.updatedAt]);
 
   return (
     <SessionContext.Provider value={{

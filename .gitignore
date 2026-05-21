@@ -47,3 +47,19 @@ outputs/*.pptx
 
 # PPT Master (submodule)
 ppt-master/
+
+# Gateway Python
+gateway-python/temp/
+gateway-python/__pycache__/
+gateway-python/bots/__pycache__/
+gateway-python/gateway.log
+
+# WorkBuddy
+.workbuddy/
+
+# CaseBuddy cache
+*.casebuddy/
+*.pid
+
+# Test files
+gateway-python/test_*.py

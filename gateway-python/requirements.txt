@@ -1,0 +1,19 @@
+# CaseBuddy Python 网关依赖
+# 安装命令: pip install -r requirements.txt
+
+# 微信 Bot 依赖
+requests>=2.28.0
+qrcode>=7.4.0
+pycryptodome>=3.15.0
+
+# QQ Bot 依赖
+qq-botpy>=1.3.0
+
+# 飞书 Bot 依赖
+lark-oapi>=1.0.0
+
+# HTTP 客户端（异步）
+aiohttp>=3.8.0
+
+# Web 服务器
+# (使用内置的 http.server)

@@ -1,4 +1,4 @@
-import { Download, Check, Sparkles, BookOpen, BarChart3, Presentation, MessageSquare, Search, Lightbulb } from 'lucide-react';
+import { Download, Check, Sparkles, BookOpen, BarChart3, Presentation, MessageSquare, Search, Lightbulb, TrendingUp, Target, DollarSign, Network, Layers, Compass } from 'lucide-react';
 import { useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import type { Skill } from '../types';
@@ -117,6 +117,163 @@ const builtinSkills: Skill[] = [
     author: 'CaseBuddy',
     prompts: [],
   },
+  // ── MBA分析框架技能 ──────────────────────────────────────────
+  {
+    id: 'mba-swot',
+    name: 'SWOT + TOWS战略推导',
+    description: '标准SWOT四象限分析，并进阶推导TOWS战略矩阵（SO进攻/ST防御/WO转型/WT规避），生成可执行战略建议',
+    icon: 'Target',
+    category: 'MBA框架',
+    installed: false,
+    version: '1.0.0',
+    author: 'CaseBuddy',
+    prompts: [
+      {
+        id: 'swot-full',
+        name: 'SWOT完整分析',
+        description: '生成SWOT四象限 + TOWS战略矩阵',
+        template: '请对以下企业案例进行完整的SWOT分析，包含SWOT四象限和TOWS战略推导矩阵，每条要素须有案例数据支撑，最终给出战略优先级建议：\n\n{{caseText}}',
+        variables: ['caseText'],
+      },
+      {
+        id: 'tows-strategy',
+        name: 'TOWS战略矩阵',
+        description: '基于已有SWOT推导四类战略',
+        template: '基于以下SWOT分析结果，推导TOWS战略矩阵，分别给出SO（进攻型）、ST（防御型）、WO（转型型）、WT（规避型）各2-3条具体可执行战略：\n\n{{swotResult}}',
+        variables: ['swotResult'],
+      },
+    ],
+  },
+  {
+    id: 'mba-porter5',
+    name: '波特五力模型',
+    description: '系统评估行业竞争格局：现有竞争强度、新进入者威胁、替代品威胁、买方议价能力、供应商议价能力，输出五力评分表和行业吸引力判断',
+    icon: 'Network',
+    category: 'MBA框架',
+    installed: false,
+    version: '1.0.0',
+    author: 'CaseBuddy',
+    prompts: [
+      {
+        id: 'porter5-full',
+        name: '五力完整分析',
+        description: '输出五力逐项分析 + 评分表 + 战略启示',
+        template: '请对以下企业所在行业进行波特五力分析，逐一分析五种力量（现有竞争/新进入者/替代品/买方议价/供应商议价），给出评分表（强/中/弱，1-5分），并判断行业整体吸引力，最后提出3条战略启示：\n\n{{caseText}}',
+        variables: ['caseText'],
+      },
+      {
+        id: 'porter5-quick',
+        name: '行业吸引力速判',
+        description: '快速判断行业进入价值',
+        template: '请快速评估以下行业的进入价值：用波特五力框架各给一句判断（强/中/弱+理由），最终给出进入/维持/退出建议：\n\n行业：{{industry}}\n背景：{{context}}',
+        variables: ['industry', 'context'],
+      },
+    ],
+  },
+  {
+    id: 'mba-bmc',
+    name: '商业模式画布（BMC）',
+    description: '解构企业9要素商业模式：客户细分、价值主张、渠道通路、客户关系、收入来源、核心资源、关键活动、关键合作、成本结构，判断商业模式类型和创新机会',
+    icon: 'Layers',
+    category: 'MBA框架',
+    installed: false,
+    version: '1.0.0',
+    author: 'CaseBuddy',
+    prompts: [
+      {
+        id: 'bmc-full',
+        name: 'BMC完整解构',
+        description: '输出9要素 + 商业模式类型 + 创新机会',
+        template: '请对以下企业进行商业模式画布（BMC）分析，逐一填写9个要素（CS/VP/CH/CR/RS/KR/KA/KP/成本结构），以VP（价值主张）为核心，判断商业模式类型，并指出最脆弱的模块和最大的创新机会：\n\n{{caseText}}',
+        variables: ['caseText'],
+      },
+      {
+        id: 'bmc-vp',
+        name: '价值主张深析',
+        description: '深度解析企业核心价值主张',
+        template: '请深度解析以下企业的价值主张：它为哪类客户解决了什么痛点（Pain Reliever），创造了什么增益（Gain Creator），核心差异化是什么，用一句话表述其价值主张公式：\n\n{{caseText}}',
+        variables: ['caseText'],
+      },
+    ],
+  },
+  {
+    id: 'mba-finance',
+    name: '财务三表深度分析',
+    description: '系统分析利润表（盈利能力）、资产负债表（偿债能力）、现金流量表（现金流质量），结合杜邦分析和财务比率，输出企业财务画像',
+    icon: 'DollarSign',
+    category: 'MBA框架',
+    installed: false,
+    version: '1.0.0',
+    author: 'CaseBuddy',
+    prompts: [
+      {
+        id: 'finance-full',
+        name: '财务三表综合分析',
+        description: '完整财务分析 + 杜邦分析 + 财务画像',
+        template: '请对以下企业的财务数据进行三表联动分析：分析利润表（毛利率/净利率/ROE/ROA）、资产负债表（资产负债率/流动比率）、现金流量表（CFO/净利润含现率），做杜邦分析拆解ROE，最终给出综合财务画像和主要财务风险：\n\n{{financialData}}',
+        variables: ['financialData'],
+      },
+      {
+        id: 'cashflow-quality',
+        name: '现金流质量评估',
+        description: '判断利润是否"真实"，识别财务风险',
+        template: '请分析以下企业的现金流质量：计算净利润含现率（CFO/净利润）、收现比（销售收现/收入），判断利润质量高低，识别应收账款/存货/商誉等财务风险信号：\n\n{{financialData}}',
+        variables: ['financialData'],
+      },
+    ],
+  },
+  {
+    id: 'mba-mece',
+    name: 'MECE + 金字塔原理',
+    description: '用MECE原则（不重叠不遗漏）和金字塔原理（结论先行）构建结构化分析框架，生成逻辑清晰的汇报大纲和Action Title，适合PPT汇报准备',
+    icon: 'TrendingUp',
+    category: 'MBA框架',
+    installed: false,
+    version: '1.0.0',
+    author: 'CaseBuddy',
+    prompts: [
+      {
+        id: 'mece-structure',
+        name: '构建MECE分析框架',
+        description: '将问题拆解为不重叠不遗漏的逻辑树',
+        template: '请用MECE原则将以下问题拆解为逻辑树，确保各分支相互独立且完全穷尽，选择最合适的拆解方式（公式法/流程法/组成法/维度法），并做MECE检验：\n\n问题：{{problem}}\n背景：{{context}}',
+        variables: ['problem', 'context'],
+      },
+      {
+        id: 'pyramid-outline',
+        name: '金字塔汇报大纲',
+        description: '生成结论先行的PPT汇报结构',
+        template: '请用金字塔原理为以下分析内容生成汇报大纲：结论先行，每个论点配2-3个支撑依据，每张PPT用Action Title（观点句，而非描述性标题），按SCR结构（Situation/Complication/Resolution）组织：\n\n{{analysisContent}}',
+        variables: ['analysisContent'],
+      },
+    ],
+  },
+  {
+    id: 'mba-strategy',
+    name: '战略综合分析',
+    description: '整合安索夫增长矩阵、波特三大竞争战略、SAFe战略评估框架，从战略诊断→选项生成→评估决策→实施路径，输出完整战略建议报告',
+    icon: 'Compass',
+    category: 'MBA框架',
+    installed: false,
+    version: '1.0.0',
+    author: 'CaseBuddy',
+    prompts: [
+      {
+        id: 'strategy-full',
+        name: '完整战略分析报告',
+        description: '诊断→选项→评估→路径全流程',
+        template: '请对以下企业案例进行完整战略分析：①识别核心战略矛盾；②用安索夫矩阵生成3个战略选项；③用SAFe框架（适宜性/可接受性/可行性）评估并推荐；④给出短中长期实施路径和主要风险应对：\n\n{{caseText}}',
+        variables: ['caseText'],
+      },
+      {
+        id: 'strategy-options',
+        name: '战略选项生成',
+        description: '生成多个差异化战略方向',
+        template: '请基于以下企业现状，用安索夫增长矩阵和波特三大竞争战略，生成3-4个差异化的战略选项，每个选项包含：战略方向、核心假设、所需资源、主要风险：\n\n{{companyContext}}',
+        variables: ['companyContext'],
+      },
+    ],
+  },
 ];
 
 const iconMap: Record<string, React.ElementType> = {
@@ -127,6 +284,12 @@ const iconMap: Record<string, React.ElementType> = {
   MessageSquare,
   Sparkles,
   Search,
+  TrendingUp,
+  Target,
+  DollarSign,
+  Network,
+  Layers,
+  Compass,
 };
 
 const categoryColors: Record<string, { bg: string; text: string; border: string; dot: string }> = {
@@ -135,6 +298,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string;
   '呈现': { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-200', dot: 'bg-emerald-500' },
   '答辩': { bg: 'bg-rose-50', text: 'text-rose-600', border: 'border-rose-200', dot: 'bg-rose-500' },
   '工具': { bg: 'bg-violet-50', text: 'text-violet-600', border: 'border-violet-200', dot: 'bg-violet-500' },
+  'MBA框架': { bg: 'bg-indigo-50', text: 'text-indigo-600', border: 'border-indigo-200', dot: 'bg-indigo-500' },
 };
 
 export default function SkillMarket() {

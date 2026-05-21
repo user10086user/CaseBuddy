@@ -1,0 +1,31 @@
+{
+  "gateways": {
+    "wecom": {
+      "enabled": false,
+      "botId": "your-bot-id",
+      "secret": "your-bot-secret",
+      "welcomeMessage": "您好！我是 CaseBuddy MBA 案例分析助手，请直接发送您的问题。",
+      "allowedUsers": []
+    },
+    "feishu": {
+      "enabled": false,
+      "appId": "your-feishu-app-id",
+      "appSecret": "your-feishu-app-secret",
+      "verificationToken": "your-verification-token",
+      "encryptKey": "your-encrypt-key",
+      "allowedUsers": []
+    },
+    "telegram": {
+      "enabled": false,
+      "botToken": "your-telegram-bot-token",
+      "allowedUsers": []
+    }
+  },
+  "llm": {
+    "proxyUrl": "http://localhost:3001",
+    "defaultModel": "ecnu-plus",
+    "streamDelay": 500,
+    "sessionTimeout": 300,
+    "maxHistory": 20
+  }
+}

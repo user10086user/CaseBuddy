@@ -4,7 +4,7 @@ import {
   Send, Bot, User, FileText, Lightbulb, BarChart3, BookOpen, Sparkles,
   ChevronDown, ChevronUp, Play, Upload, Zap, AlertCircle, Trash2, Copy, Check,
   PlusCircle, Image as ImageIcon, Paperclip, X as XIcon, Download, FileDown,
-  FileText as FileMd, Eye, MoreHorizontal, Presentation
+  FileText as FileMd, Eye, MoreHorizontal, Presentation, MessageCircle
 } from 'lucide-react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useSession } from '../contexts/SessionContext';
@@ -53,6 +53,8 @@ export default function WorkBench() {
   const [msgActionId, setMsgActionId] = useState<string | null>(null);
   const [activeModelId, setActiveModelId] = useLocalStorage<string | null>('casebuddy-active-model', null);
   const [showModelMenu, setShowModelMenu] = useState(false);
+  const [ragBuilding, setRagBuilding] = useState(false);  // RAG 索引构建中
+  const [ragEnabled, setRagEnabled] = useLocalStorage('casebuddy-rag-enabled', false); // RAG 总开关
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -102,11 +104,32 @@ export default function WorkBench() {
       }
 
       const data = await response.json();
+      const caseText = data.text || '文件解析失败，请手动粘贴案例文本';
+      const caseTitle = file.name.replace(/\.(pdf|docx)$/i, '');
+      const ragCaseId = `case_${Date.now()}`;
+
       setSession(prev => ({
         ...prev,
-        caseText: data.text || '文件解析失败，请手动粘贴案例文本',
-        title: file.name.replace(/\.(pdf|docx)$/i, ''),
+        caseText,
+        title: caseTitle,
+        ragCaseId,
+        ragIndexed: false,
       }));
+
+      // 后台自动构建 RAG 索引（非阻塞）
+      if (ragEnabled && caseText.length > 500) {
+        setRagBuilding(true);
+        fetch('http://localhost:3001/api/rag/index', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ caseId: ragCaseId, text: caseText }),
+        }).then(async (r) => {
+          if (r.ok) {
+            const d = await r.json();
+            setSession(prev => ({ ...prev, ragIndexed: true, ragTotalChunks: d.totalChunks }));
+          }
+        }).catch(() => {}).finally(() => setRagBuilding(false));
+      }
     } catch (err) {
       setError(`文件上传失败: ${err instanceof Error ? err.message : String(err)}`);
     }
@@ -440,15 +463,54 @@ export default function WorkBench() {
       .map(a => a.data)
       .join('\n\n');
 
+    // ————————————————————————————————————
+    // RAG 上下文获取（替代全文注入）
+    // ————————————————————————————————————
+    const getRAGContext = async (query: string): Promise<string> => {
+      if (ragEnabled && session.ragIndexed && session.ragCaseId) {
+        try {
+          const resp = await fetch('http://localhost:3001/api/rag/query', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              caseId: session.ragCaseId,
+              query,
+              topK: 8,
+            }),
+          });
+          if (resp.ok) {
+            const d = await resp.json();
+            if (d.contextForPrompt && d.contextForPrompt.length > 100) {
+              return d.contextForPrompt;
+            }
+          }
+        } catch { /* 降级到全文 */ }
+      }
+      // 降级：返回全文（最多 6000 字）
+      return session.caseText.length > 6000
+        ? session.caseText.slice(0, 6000) + '\n\n[...文本较长，已截取前6000字符]'
+        : session.caseText;
+    };
+
+    // 查询意图提取（用于 RAG 检索）
+    const queryIntent = isPrompt
+      ? (builtinPrompts.find(p => p.prompt === content)?.name || content.slice(0, 100))
+      : content.slice(0, 200);
+
+    const caseContext = await getRAGContext(queryIntent);
+
     let fullContent = isPrompt
-      ? content.replace(/\{\{case\}\}/g, session.caseText)
+      ? content.replace(/\{\{case\}\}/g, caseContext)
       : content;
 
     if (attachmentContent) {
       fullContent += '\n\n【附件内容】\n' + attachmentContent;
     }
 
-    fullContent += '\n\n【案例背景】\n' + session.caseText;
+    // 注入案例背景（RAG 模式下已通过 getRAGContext 获取相关片段）
+    if (!isPrompt) {
+      fullContent += '\n\n【案例背景】\n' + caseContext;
+    }
 
     // Inject memory context
     const memoryContext = buildMemoryContext();
@@ -621,6 +683,43 @@ export default function WorkBench() {
               placeholder="在此粘贴案例正文，或上传PDF..."
             />
           )}
+          {/* RAG 状态栏 */}
+          <div className="px-4 py-2 flex items-center justify-between border-t border-surface-100 bg-surface-50">
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={() => {
+                  const next = !ragEnabled;
+                  setRagEnabled(next);
+                  // 开启RAG且有文本但未索引，立即构建索引
+                  if (next && session.caseText.length > 500 && !session.ragIndexed) {
+                    const ragCaseId = session.ragCaseId || `case_${Date.now()}`;
+                    setSession(prev => ({ ...prev, ragCaseId, ragIndexed: false }));
+                    setRagBuilding(true);
+                    fetch('http://localhost:3001/api/rag/index', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ caseId: ragCaseId, text: session.caseText }),
+                    }).then(async r => {
+                      if (r.ok) {
+                        const d = await r.json();
+                        setSession(prev => ({ ...prev, ragIndexed: true, ragTotalChunks: d.totalChunks }));
+                      }
+                    }).catch(() => {}).finally(() => setRagBuilding(false));
+                  }
+                }}
+                className={`relative inline-flex h-4 w-8 items-center rounded-full transition-colors ${ragEnabled ? 'bg-emerald-500' : 'bg-surface-300'}`}
+                title={ragEnabled ? '智能RAG检索：开启' : '智能RAG检索：关闭（当前全文注入）'}
+              >
+                <span className={`inline-block h-3 w-3 transform rounded-full bg-white shadow transition-transform ${ragEnabled ? 'translate-x-4' : 'translate-x-0.5'}`} />
+              </button>
+              <span className="text-xs text-surface-500">
+                {ragBuilding ? '索引中...' : ragEnabled ? (session.ragIndexed ? `RAG✓ ${session.ragTotalChunks || ''}块` : 'RAG未索引') : '全文模式'}
+              </span>
+            </div>
+            {ragEnabled && session.ragIndexed && (
+              <span className="text-xs text-emerald-600 font-medium">按需检索</span>
+            )}
+          </div>
         </div>
 
         {/* Agent Tools */}
@@ -871,6 +970,30 @@ export default function WorkBench() {
                             >
                               <Presentation className="w-3.5 h-3.5 text-primary-500" />
                               AI PPT助手
+                            </button>
+                            <button
+                              onClick={async () => {
+                                try {
+                                  const res = await fetch(`${'http://localhost:3001/api'}/gateway/push-wechat`, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ content: msg.content, title: `【${session.title}】AI 分析` }),
+                                  });
+                                  if (res.ok) {
+                                    alert('✅ 已推送到微信！');
+                                  } else {
+                                    const d = await res.json();
+                                    alert(`❌ 推送失败: ${d.error || '请确认微信已登录'}`);
+                                  }
+                                } catch {
+                                  alert('❌ 网络错误，请确认后端和微信网关已启动');
+                                }
+                                setMsgActionId(null);
+                              }}
+                              className="w-full flex items-center gap-2 px-3 py-2 text-xs text-surface-700 hover:bg-surface-50 transition-colors"
+                            >
+                              <MessageCircle className="w-3.5 h-3.5 text-green-500" />
+                              发送到微信
                             </button>
                           </div>
                         </>

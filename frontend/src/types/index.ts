@@ -51,4 +51,9 @@ export interface AnalysisSession {
   createdAt: number;
   updatedAt: number;
   activeSkills: string[];
+  // RAG 扩展字段
+  ragCaseId?: string;      // 案例唯一ID（RAG索引用）
+  ragEnabled?: boolean;    // 是否启用 RAG 检索
+  ragIndexed?: boolean;    // 是否已完成索引构建
+  ragTotalChunks?: number; // 索引中的分块总数
 }
